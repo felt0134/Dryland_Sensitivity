@@ -82,21 +82,6 @@ write.csv(herb_region_coef_summary_merged,
 #
 #
 
-
-#-------------------------------------------------------------------------------
-# Summary statistics of mean annual precipitation ---------
-
-map_means_by_ecoregion<-aggregate(mm.y~x+y+region,mean,data=rangeland_npp_covariates)
-map_ci_by_ecoregion<-aggregate(mm.y~region,error.95,data=map_means_by_ecoregion)
-map_means_ci_by_ecoregion<-merge(map_means_by_ecoregion,map_ci_by_ecoregion,by='region')
-colnames(map_means_ci_by_ecoregion) <-c('region','mean annual precipitation','95% ci')
-
-# Save
-write.csv(map_means_ci_by_ecoregion,
-          file = 'Tables_Figures/Supporting/ecoregion_MAP.csv')
-#
-#
-
 #-------------------------------------------------------------------------------
 # AIC data frame production -------------
 
